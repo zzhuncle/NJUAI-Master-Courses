@@ -1,0 +1,173 @@
+\documentclass[a4paper,UTF8]{article}
+\usepackage{ctex}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\usepackage{lipsum}
+\newmdtheoremenv{thm-box}{myThm}
+\newmdtheoremenv{prop-box}{Proposition}
+\newmdtheoremenv{def-box}{定义}
+
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{-0.5in}
+\setlength{\topmargin}{-0.5in}
+% \setlength{\textheight}{9.5in}
+%%%%%%%%%%%%%%%%%%此处用于设置页眉页脚%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}                                
+\usepackage{lastpage}                                           
+\usepackage{layout}                                             
+\footskip = 10pt 
+\pagestyle{fancy}                    % 设置页眉                 
+\lhead{2022年秋季}                    
+\chead{时间序列分析}                                                
+% \rhead{第\thepage/\pageref{LastPage}页} 
+\rhead{作业二}                                                                                               
+\cfoot{\thepage}                                                
+\renewcommand{\headrulewidth}{1pt}  			%页眉线宽，设为0可以去页眉线
+\setlength{\skip\footins}{0.5cm}    			%脚注与正文的距离           
+\renewcommand{\footrulewidth}{0pt}  			%页脚线宽，设为0可以去页脚线
+
+\makeatletter 									%设置双线页眉                                        
+\def\headrule{{\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi%
+\hrule\@height 1.0pt \@width\headwidth\vskip1pt	%上面线为1pt粗  
+\hrule\@height 0.5pt\@width\headwidth  			%下面0.5pt粗            
+\vskip-2\headrulewidth\vskip-1pt}      			%两条线的距离1pt        
+ \vspace{6mm}}     								%双线与下面正文之间的垂直间距              
+\makeatother  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\numberwithin{equation}{section}
+%\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\newtheorem{myThm}{myThm}
+\newtheorem*{myDef}{Definition}
+\newtheorem*{mySol}{Solution}
+\newtheorem*{myProof}{Proof}
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\usepackage{multirow}
+
+%--
+
+%--
+\begin{document}
+\title{时间序列分析\\
+作业二}
+\author{学号, 作者姓名, 邮箱}
+\maketitle
+
+\section*{作业提交注意事项}
+\begin{tcolorbox}
+\begin{enumerate}
+  \item[(1)] 请严格参照教学立方网站所述提交作业，文件命名统一为{\color{red}学号\_姓名.pdf};
+  \item[(2)] 未按照要求提交作业，或提交作业格式不正确，将会被扣除部分作业分数；
+  \item[(3)] 除非有特殊情况（如因病缓交），否则截止时间后不接收作业，本次作业记零分。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{enumerate}
+\item 考虑线性模型 $Y=\alpha+\beta X+\varepsilon$ ，其中 $\alpha$ 和 $\beta$ 都是常量。 $X$ 和 $\varepsilon$ 是互 不相关的随机变量, 均值和方差如下： $\mathrm{E}[X]=\mu_{X}, E[\varepsilon]=0$, $\operatorname{Var}[X]=\sigma_{X}^{2}, \operatorname{Var}[\varepsilon]=\sigma_{\varepsilon}^{2}$ 。求:
+	\begin{enumerate}[1)]
+		\item $\mathrm{E}[Y \mid X]$ 和 $\operatorname{Var}[Y \mid X]$
+		\item $\mathrm{E}[Y]$ 和 $\operatorname{Var}[Y]$
+	\end{enumerate}
+
+\begin{mySol}
+	
+	
+	
+\end{mySol}
+
+
+
+\item 	\begin{enumerate}[1)]
+		\item 已知随机过程
+		
+		$$
+		X_{t}=\varepsilon_{t}+c\left(\varepsilon_{t-1}+\varepsilon_{t-2}+\cdots\right)
+		$$
+		
+		其中 $\mathrm{c}$ 是一个常量, $\left\{\varepsilon_{t}\right\}$ 是白噪声, 证明这一随机过程是非平稳的。
+		\item 基于 $X_{t}$ ， 引入新的过程
+		$$
+		Y_{t}=\nabla X_{t}
+		$$
+		
+		请证明 $\left\{Y_{t}\right\}$ 是一个 MA(1) 过程, 并说明 $\left\{Y_{t}\right\}$ 是否是平稳的。
+		\item 求 $\left\{Y_{t}\right\}$ 的 $A C F$ 。
+	\end{enumerate}
+ 
+ 
+ \begin{mySol}
+ 	
+ 	
+ 	
+ \end{mySol}
+ 
+ 
+ 
+\item 常数均值模型, $Y_{t}=\mu+\varepsilon_{t} \quad (t=1, \ldots, N) \quad \varepsilon_{t}$ 为 i.i.d., 均值为 0 , 常数方差 $\sigma^{2}$ (白噪声)。对于所有样本, 
+
+$$
+\hat{\mu}=\frac{1}{N} \sum_{t=1}^{N} Y_{t}=\bar{y}
+$$
+
+预测 $\hat{Y}_{N+\ell \mid N}=\hat{\mu}_{\text {。 }}$ 请证明: 预测误差的方差为
+
+$$
+V\left[Y_{N+\ell}-\hat{Y}_{N+\ell \mid N}\right]=\sigma^{2}\left(1+\frac{1}{N}\right)
+$$
+
+
+\begin{mySol}
+	
+	
+	
+\end{mySol}
+
+
+
+
+\item 证明平稳随机过程 $\{Y(t)\}$ 自协方差函数 $\gamma(k)$ 的性质
+\begin{enumerate}[1)]
+	\item【对称性】 $\gamma(k)=\gamma(-k)$
+	
+	\item【规范性】 $|\gamma(k)| \leq \gamma(0)$
+	
+	\item【非负定性】 $\forall y, n, t$ ， 二次型 $\sum_{i=1}^{n} \sum_{j=1}^{n} y_{i} y_{j} \gamma\left(t_{i}-t_{j}\right) \geq 0$
+\end{enumerate}
+
+
+\begin{mySol}
+	
+	
+	
+\end{mySol}
+
+
+
+
+\item 开放题：对课程的建议
+	
+	
+\begin{mySol}
+	
+	
+	
+\end{mySol}
+
+\end{enumerate}
+
+\end{document}

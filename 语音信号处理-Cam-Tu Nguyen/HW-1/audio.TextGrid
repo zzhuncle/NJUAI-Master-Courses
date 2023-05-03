@@ -1,0 +1,138 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 4.816326530612245 
+tiers? <exists> 
+size = 1 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "word" 
+        xmin = 0 
+        xmax = 4.816326530612245 
+        intervals: size = 31 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.1430535666053826 
+            text = "" 
+        intervals [2]:
+            xmin = 0.1430535666053826 
+            xmax = 0.2247673734963664 
+            text = "This" 
+        intervals [3]:
+            xmin = 0.2247673734963664 
+            xmax = 0.32089515544872427 
+            text = "" 
+        intervals [4]:
+            xmin = 0.32089515544872427 
+            xmax = 0.40424323847752774 
+            text = "is" 
+        intervals [5]:
+            xmin = 0.40424323847752774 
+            xmax = 0.47317860082357144 
+            text = "" 
+        intervals [6]:
+            xmin = 0.47317860082357144 
+            xmax = 0.5291729869956182 
+            text = "" 
+        intervals [7]:
+            xmin = 0.5291729869956182 
+            xmax = 0.8706725472936432 
+            text = "Harper" 
+        intervals [8]:
+            xmin = 0.8706725472936432 
+            xmax = 0.9074437603945859 
+            text = "" 
+        intervals [9]:
+            xmin = 0.9074437603945859 
+            xmax = 1.1918078083752095 
+            text = "Valley" 
+        intervals [10]:
+            xmin = 1.1918078083752095 
+            xmax = 1.8353939049095922 
+            text = "National" 
+        intervals [11]:
+            xmin = 1.8353939049095922 
+            xmax = 1.8999025203256366 
+            text = "" 
+        intervals [12]:
+            xmin = 1.8999025203256366 
+            xmax = 2.06151200190428 
+            text = "Bank" 
+        intervals [13]:
+            xmin = 2.06151200190428 
+            xmax = 2.3906161511271664 
+            text = "" 
+        intervals [14]:
+            xmin = 2.3906161511271664 
+            xmax = 2.472901954666387 
+            text = "My" 
+        intervals [15]:
+            xmin = 2.472901954666387 
+            xmax = 2.6235731651276417 
+            text = "name" 
+        intervals [16]:
+            xmin = 2.6235731651276417 
+            xmax = 2.683122101899446 
+            text = "" 
+        intervals [17]:
+            xmin = 2.683122101899446 
+            xmax = 2.846611001036582 
+            text = "is" 
+        intervals [18]:
+            xmin = 2.846611001036582 
+            xmax = 2.919730880842308 
+            text = "" 
+        intervals [19]:
+            xmin = 2.919730880842308 
+            xmax = 3.53975481907937 
+            text = "Elizabeth" 
+        intervals [20]:
+            xmin = 3.53975481907937 
+            xmax = 3.755062143582992 
+            text = "" 
+        intervals [21]:
+            xmin = 3.755062143582992 
+            xmax = 3.8469901763353485 
+            text = "How" 
+        intervals [22]:
+            xmin = 3.8469901763353485 
+            xmax = 3.923491995283621 
+            text = "" 
+        intervals [23]:
+            xmin = 3.923491995283621 
+            xmax = 4.002018963705857 
+            text = "can" 
+        intervals [24]:
+            xmin = 4.002018963705857 
+            xmax = 4.1125832099361785 
+            text = "I" 
+        intervals [25]:
+            xmin = 4.1125832099361785 
+            xmax = 4.20067069376466 
+            text = "" 
+        intervals [26]:
+            xmin = 4.20067069376466 
+            xmax = 4.32179098402882 
+            text = "help" 
+        intervals [27]:
+            xmin = 4.32179098402882 
+            xmax = 4.427896362276762 
+            text = "" 
+        intervals [28]:
+            xmin = 4.427896362276762 
+            xmax = 4.504972910626683 
+            text = "you" 
+        intervals [29]:
+            xmin = 4.504972910626683 
+            xmax = 4.576361286689028 
+            text = "" 
+        intervals [30]:
+            xmin = 4.576361286689028 
+            xmax = 4.797641469363559 
+            text = "today" 
+        intervals [31]:
+            xmin = 4.797641469363559 
+            xmax = 4.816326530612245 
+            text = "" 

@@ -1,0 +1,184 @@
+\documentclass[a4paper]{article}
+% \usepackage[margin=1.25in]{geometry}
+\usepackage[inner=2.0cm,outer=2.0cm,top=2.5cm,bottom=2.5cm]{geometry}
+% \usepackage{ctex}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{bm}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[colorlinks,linkcolor=blue,urlcolor=blue]{hyperref}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}} 
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+
+\newtheorem{definition}{定义}
+
+\newcommand\bms{\bm{s}}
+\newcommand\bmx{\bm{x}}
+\newcommand\bmy{\bm{y}}
+\newcommand\bmz{\bm{z}}
+
+\newcommand\upx{\mathrm{x}}
+\newcommand\upy{\mathrm{y}}
+\newcommand{\pr}{\mathrm{P}}
+\newcommand{\expect}[2][]{\mathrm{E}_{#1}[ #2 ]}
+\newcommand{\fn}[1]{f^{\mathrm{n}}(\bms^{#1})}
+
+\newcommand{\bsp}[1][n]{\{0,1\}^{#1}}
+\newcommand\sps{\mathcal{S}}
+\newcommand\spx{\mathcal{X}}
+\newcommand\spy{\mathcal{Y}}
+\newcommand*{\circled}[1]{\lower.7ex\hbox{\tikz\draw (0pt, 0pt)%
+    circle (.5em) node {\makebox[1em][c]{\small #1}};}}
+\usepackage{CJKutf8}
+
+\newcommand{\homework}[5]{
+    \pagestyle{myheadings}
+    \thispagestyle{plain}
+    \newpage
+    \setcounter{page}{1}
+    \noindent
+    \begin{center}
+    \framebox{
+        \vbox{\vspace{2mm}
+        \hbox to 6.28in { {\bf HSEA2022 \hfill #2} }
+        \vspace{6mm}
+        \hbox to 6.28in { {\Large \hfill #1 \hfill} }
+        \vspace{6mm}
+        \hbox to 6.28in { {\it Instructor: {\rm #3} \hfill Name: {\rm #4}, StudentId: {\rm #5}}}
+        \vspace{2mm}}
+    }
+    \end{center}
+    % \markboth{#4 -- #1}{#4 -- #1}
+    \vspace*{4mm}
+}
+\begin{CJK}{UTF8}{gbsn}
+\DeclareMathOperator*{\argmin}{argmin}
+\def\R{\mathbb{R}}
+\def\dom{\mathrm{dom}}
+
+
+\newenvironment{solution}
+{\color{blue} \paragraph{Solution.}}
+{\newline \qed}
+
+
+
+
+\begin{document}
+%==========================Put your name and id here==========================
+\homework{Homework 3}{Fall 2022}{Chao Qian}{Your name}{Your number}
+
+\section{Problem 1: 求解LeadingOnes问题(20)}
+请用适应层分析法来分析(1+1)-EA找到LeadingOnes问题最优解的期望运行时间上界。
+\section{Problem 2: 求解OneMax问题(40)}
+(1)~请用乘性漂移分析法求解(1+1)-EA算法找到OneMax问题最优解的期望运行时间上界(20)。
+\\
+\\
+(2)~请用加性漂移分析法求解(1+1)-EA算法找到OneMax问题最优解的期望运行时间上界(20)。
+\section{Problem 3: 求解COCZ问题(40)}
+试求解GSEMO算法找到COCZ问题的帕累托前沿的期望运行时间上界。
+
+\section{相关内容}
+
+作业相关伪布尔函数问题的定义如下：
+\begin{definition}[LeadingOnes]\label{def_leadingones}
+	一个规模为$n$的LeadingOnes问题旨在找到一个$n$位的01串，以最大化
+	\begin{equation}
+		f(\bms)=\sum\limits^{n}_{i=1} \prod\limits^{i}_{j=1} s_j,
+	\end{equation}
+这里$s_j$指$\bms \in \{0,1\}^n$的第$j$位。
+\end{definition}
+
+\begin{definition}[OneMax]\label{def_onemax}
+	一个规模为$n$的OneMax问题旨在找到一个$n$位的01串，以最大化
+	\begin{equation}
+		f(\bms)=\sum\limits^{n}_{i=1} s_i,
+	\end{equation} 
+	这里$s_i$指$\bms \in \{0,1\}^n$的第$i$位。
+\end{definition}
+
+\begin{definition}[COCZ]\label{def_bin}
+	一个规模为$n$的COCZ: $\{0,1\}^n\rightarrow\mathbb{N}^2$问题旨在找到一个$n$位的01串，以最大化
+	\begin{equation}
+	COCZ(\bm{s})=\left(\sum\limits^{n}_{i=1}  s_i,\sum\limits^{n/2}_{i=1} s_i+\sum\limits^{n}_{i=n/2+1} (1-s_i)\right)
+	\end{equation}
+	这里$n$为偶数，且$s_i$指$\bms \in \{0,1\}^n$的第$i$位。
+\end{definition}
+对于二目标优化问题COCZ，可通过占优规则来比较两个解的优劣，具体定义如下：
+\begin{definition}[占优规则]\label{def_domination}
+    对于具有两目标$(f_1,f_2)$的解$\bms$和$\bm{s'}$来说，\\
+1. 若~$\ \forall i: f_{i}(\bm{s})\ge f_{i}(\bm{s}')$，则$\bm{s}$~弱占优~$\bm{s}'$，即$\bm{s}$好于$\bm{s}'$，表示为$\bm{s}\succeq \bm{s}'$;\\
+2. 若~$\bm{s}\succeq \bm{s}' \land \exists i: f_{i}(\bm{s})> f_{i}(\bm{s}')$，则$\bm{s}$~占优~$\bm{s}'$，即$\bm{s}$严格好于$\bm{s}'$，表示为$\bm{s}\succ \bm{s}'$；\\
+3. 若既不满足$\bm{s}\succeq \bm{s}'$又不满足$\bm{s}'\succeq \bm{s}$，则$\bm{s}$~和~$\bm{s}'$~二者不可比.
+\end{definition}
+帕累托前沿的定义如下：
+\begin{definition}[帕累托前沿]\label{pareto}
+令$\mathcal{X}$代表问题的解空间。若解空间中不存在解能优于$\bms$，则称$\bms$为帕累托最优解。所有帕累托最优解的目标向量集合称为帕累托前沿。
+\end{definition}
+(1+1)-EA和GSEMO算法的基本流程如算法~\ref{algo:(1+1)-EA}和算法~\ref{algo:GSEMO}所示：
+\begin{algorithm}[htb]
+	\begin{algorithmic}[1]
+		\REQUIRE{伪布尔函数$f:\bsp\rightarrow \mathbb{R}$}
+		\ENSURE{$\bsp$中的一个解}
+		\STATE 随机均匀地从$\{0,1\}^n$中选择一个解$\bms$作为初始解
+		\WHILE{算法终止条件不满足}
+		\STATE $\bms'\gets$将$\bms$的每一位独立地以$1/n$的概率翻转
+		\IF{$f(\bms')\ge f(\bms)$}
+		\STATE $\bms\gets\bms'$
+		\ENDIF
+		\ENDWHILE
+		\RETURN{$\bms$}
+		\caption{(1+1)-EA}
+		\label{algo:(1+1)-EA}
+	\end{algorithmic}
+\end{algorithm}
+\begin{algorithm}[htb]
+	\begin{algorithmic}[1]
+		\STATE 随机均匀地从$\{0,1\}^n$中选择一个解$\bms$作为初始解
+		\STATE 将初始解放入种群$P\leftarrow\{\bms\}$
+		\WHILE{算法终止条件不满足}
+		\STATE 随机均匀地从种群$P$中挑选出解$\bms$
+		\STATE $\bms'\gets$将$\bms$的每一位独立地以$1/n$的概率翻转
+		\IF {$\nexists \bm{z} \in P$ 使得$\bm{z} \succ \bm{s}'$}
+\STATE $P = (P - \{\bm{z} \in P \mid \bm{s}' \succeq \bm z\}) \cup \{\bm{s}'\}$
+\ENDIF
+		\ENDWHILE
+		
+		\caption{GSEMO}
+		\label{algo:GSEMO}
+	\end{algorithmic}
+\end{algorithm}
+\section{提交与评分}
+提交一份pdf文档，并发送到\href{mailto:liudx@lamda.nju.edu.cn}{liudx@lamda.nju.edu.cn}，\textbf{12月17日23:59}截止。延期提交的折扣为-10/天，即每延迟一天，本次作业得分减10。请合理分配时间。
+\begin{itemize}
+	\item Pdf文档命名方式：“学号-姓名.pdf”，例如“MG1937000-张三.pdf”；
+	\item 邮件标题命名：“HSEA第三次作业-学号-姓名”，例如“HSEA第三次作业-MG1937000-张三”。
+\end{itemize}
+注意，pdf可以用latex/word/markdown等方式生成，但是不要用手写证明的照片。
+
+
+作业的评分主要参考以下几点：
+\begin{enumerate}
+	\item 结论的紧致性。
+	\item 证明过程的完整性以及正确性。例如在使用分析工具时是否充分考虑了工具的条件，公式推导是否完整、以及是否有错误。
+	\item 文档的细节。例如是否出现符号错误，文档格式是否混乱。
+\end{enumerate}
+
+\textbf{若发现作业出现雷同的情况，会根据相关规定给予惩罚，详情请参考课程主页中“学术诚信”的相关内容。}请同学们务必独立完成作业！
+
+
+\end{document}
+\end{CJK}
