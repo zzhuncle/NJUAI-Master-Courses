@@ -1,0 +1,109 @@
+\documentclass[a4paper,UTF8]{article}
+\usepackage{ctex}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\usepackage{lipsum}
+
+
+\usepackage{natbib}
+\newmdtheoremenv{thm-box}{myThm}
+\newmdtheoremenv{prop-box}{Proposition}
+\newmdtheoremenv{def-box}{定义}
+
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{-0.5in}
+\setlength{\topmargin}{-0.5in}
+% \setlength{\textheight}{9.5in}
+%%%%%%%%%%%%%%%%%%此处用于设置页眉页脚%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}                                
+\usepackage{lastpage}                                           
+\usepackage{layout}                                             
+\footskip = 12pt 
+\pagestyle{fancy}                    % 设置页眉                 
+\lhead{2023年春季}                    
+\chead{机器学习理论研究导引}                                                
+% \rhead{第\thepage/\pageref{LastPage}页} 
+\rhead{大作业}                     
+\cfoot{\thepage}                                                
+\renewcommand{\headrulewidth}{1pt}  			%页眉线宽，设为0可以去页眉线
+\setlength{\skip\footins}{0.5cm}    			%脚注与正文的距离           
+\renewcommand{\footrulewidth}{0pt}  			%页脚线宽，设为0可以去页脚线
+\pgfplotsset{compat=1.16}
+
+\makeatletter 									%设置双线页眉                                        
+\def\headrule{{\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi%
+\hrule\@height 1.0pt \@width\headwidth\vskip1pt	%上面线为1pt粗  
+\hrule\@height 0.5pt\@width\headwidth  			%下面0.5pt粗            
+\vskip-2\headrulewidth\vskip-1pt}      			%两条线的距离1pt        
+ \vspace{6mm}}     								%双线与下面正文之间的垂直间距              
+\makeatother  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\numberwithin{equation}{section}
+%\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\newtheorem{myThm}{myThm}
+\newtheorem*{myDef}{Definition}
+\newtheorem*{mySol}{Solution}
+\newtheorem*{myProof}{Proof}
+\newtheorem*{myRemark}{备注}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\usepackage{multirow}
+
+%--
+
+%--
+\begin{document}
+\title{机器学习理论研究导引\\
+大作业}
+\author{你的姓名\, 你的学号\, 你的院系} 
+\date{}
+\maketitle
+%%%%%%%% 注意: 使用XeLatex 编译可能会报错，请使用 pdfLaTex 编译 %%%%%%%
+
+\section*{作业提交注意事项}
+\begin{tcolorbox}
+  \begin{enumerate}
+      \item[(1)] 本次作业提交截止时间为~\textcolor{red}{\textbf{2023/07/02  23:59:59}}, 截止时间后不再接收作业, 本次作业记零分; 
+      \item[(2)] 作业提交方式: 使用此LaTex模板书写解答, 只需提交编译生成的pdf文件, 将pdf文件提交至南大网盘:
+      \newline https://box.nju.edu.cn/u/d/c1944351a2de4e93ada5/
+      \item[(3)] pdf 文件命名方式：学号-姓名-作业号-v版本号, 例~ MG1900000-张三-5-v1；如果需要更改已提交的解答，请在截止时间之前提交新版本的解答，并将版本号加一；
+      \item[(4)] 未按照要求提交作业，或~pdf~命名方式不正确，将会被扣除部分作业分数. 
+  \end{enumerate}
+\end{tcolorbox}
+
+\begin{abstract}
+
+此处为文章摘要
+
+\end{abstract}
+
+
+\newpage
+\section{此处为第一章标题}
+使用\textbackslash{}citep 命令引用参考文献,  例如\citep{book/mohri2018foundations} \citep{journal/Vapnik1971} \citep{conf/Sugiyama2006local}
+
+\section{此处为第二章标题}
+
+\section{可自由添加后续章节}
+
+%% 参考文献列表  参考文献位于 ref.bib 中, 文件中给出了书籍 期刊 会议的格式, 请参照对应格式添加参考文献
+\bibliographystyle{abbrvnat}
+\bibliography{ref}
+\end{document}
