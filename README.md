@@ -1,2 +1,2 @@
-# NJUAI-Courses
-NJUAI-Courses
+# NJUAI-Master-Courses
+NJUAI-Master-Courses
